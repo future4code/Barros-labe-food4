@@ -1,8 +1,17 @@
 
+import React from "react";
+import Router from "./Routes/Routes";
+
+
+
 
 function App() {
   return (
     <div className="App">
+
+      <Router />
+
+
 
     </div>
   );
