@@ -1,16 +1,18 @@
 
 import React from "react";
 import Router from "./Routes/Routes";
-import StateGlobal from "./Context/StateGlobal";
+import GlobalState from "./Context/GlobalState";
+
 
 
 
 
 function App() {
   return (
-    <StateGlobal>
-      <Router />
-    </StateGlobal>
+
+    <GlobalState>
+      < Router />
+    </GlobalState >
   );
 }
 
