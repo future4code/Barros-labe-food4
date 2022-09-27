@@ -8,6 +8,7 @@ import axios from "axios";
 import GlobalState from "../Context/GlobalState";
 import GlobalStateContext from "../Context/GlobalStateContext";
 import { useContext } from "react";
+import * as Coordinator from "../Routes/coordinator"
 
 
 export default function LoginPage() {
@@ -58,10 +59,10 @@ export default function LoginPage() {
                     type="password"
                     format="ignoring this for now"
                     onChange={handlePassword} />
-                <RedButton>Entrar</RedButton>
+                <RedButton onClick={() => Coordinator.goToHomePage}>Entrar</RedButton>
             </form>
 
-            <p>Não possui cadastro? </p><button onClick={() => GoToSignUpPage()}>Clique aqui</button>
+            <p>Não possui cadastro? </p><button onClick={() => Coordinator.goToSignUpPage}>Clique aqui</button>
         </Box>
     )
 
