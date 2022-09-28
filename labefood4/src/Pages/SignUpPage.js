@@ -37,7 +37,7 @@ export default function SignUpPage() {
 
     return (
         <Box>
-            <IFutureLogo src={LogoFood4} alt="logo da Labefood" />
+            <IFutureLogo src={LogoFood4} alt="logo da Labefood"/>
             <Tittle>Cadastrar</Tittle>
 
             
