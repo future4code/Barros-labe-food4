@@ -1,5 +1,8 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { RedBox } from "../Style/GlobalStyle";
+import Logo from "../Assets/logo-future-eats.png"
+
 
 export default function LandingPage() {
 
@@ -8,15 +11,14 @@ export default function LandingPage() {
         navigate(`/login`)
     }
 
-    const myTimeout = setTimeout(GoToLoginPage, 3000)
+    const myTimeout = setTimeout(GoToLoginPage, 3141.5)
 
 
 
     return (
-        <div>
-            <h1>Landing Loading</h1>
-            <button onClick={() => GoToLoginPage()}>next</button>
-        </div >
+        <RedBox>
+            <img src={Logo} />
+        </RedBox>
     )
 
 
