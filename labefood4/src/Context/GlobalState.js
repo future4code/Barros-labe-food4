@@ -4,27 +4,25 @@ import GlobalStateContext from "./GlobalStateContext";
 import { useState } from "react";
 import { BASE_URL } from "../Constants/Constants";
 import { useNavigate } from "react-router-dom";
+import useRequestData from "../Hooks/useRequestData"
 
 
 
 const GlobalState = (props) => {
 
-    // STATES
+    // HARDCODED STUFF
+    const hardHeaders = 'Content-Type: application/json'
+    const hardUrl = "https://us-central1-missao-newton.cloudfunctions.net/fourFoodD/restaurants"
 
+
+    // STATES
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");   
     const [name, setName] = useState("");
-
-    const urlRoubada = `https://us-central1-missao-newton.cloudfunctions.net/fourFoodD/login`
-    const bodyRoubado = {
-        "email": `astrodev@future4.com`,
-        "password": `123456`
-    }
-    const headersRoubado =
-        'Content-Type: application/json'
+    const [restaurants, setRestaurants] = useState([])
+    const [token, setToken] = useState({})
 
     // REQUESTS
-
     const login = (url, body, headers, event) => {
 
         event.preventDefault()
@@ -33,26 +31,40 @@ const GlobalState = (props) => {
             .then((response) => {
                 localStorage.setItem("token", response.data.token)
                 localStorage.setItem("userName", email)
-
+                setToken(response.data.token)
+                console.log(token)
 
 
             }).catch((error) => {
                 alert("Usuário não cadastrado ou senha inválida")
                 console.log(error);
             })
-
     }
 
+    // const getRestaurant = (url, headers) => {
+
+    //     axios.get(url, headers)
+    //         .then((response) => {
+    //             setters.setRestaurants(response.data)
+    //             console.log(restaurants)
 
     const signup = (url, body, headers, event) => {
 
         event.preventDefault()
 
+    //         }).catch((error) => {
+    //             alert("BUGOU GETRESTAURANT")
+    //             console.log(url, headers)
+    //             console.log(error.response.data);
+    //             console.log(error.response.status);
+    //             console.log(error.response.headers);
+    //         })
         axios.post(url.url, body.body, headers.headers)
             .then((response) => {
                 localStorage.setItem("token", response.data.token)
                 localStorage.setItem("userName", email, name)
 
+    // }
 
 
             }).catch((error) => {
@@ -64,8 +76,8 @@ const GlobalState = (props) => {
 
 
 
-    const states = { email, password, name}
-    const setters = { setEmail, setPassword, setName }
+    const states = { email, password, restaurants, token, name}
+    const setters = { setEmail, setPassword, setRestaurants, setToken, setName }
     const requests = { login, signup }
 
     return (
