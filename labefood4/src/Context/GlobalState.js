@@ -21,6 +21,12 @@ const GlobalState = (props) => {
     const [name, setName] = useState("");
     const [restaurants, setRestaurants] = useState([])
     const [token, setToken] = useState({})
+  
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+    const [restaurants, setRestaurants] = useState([])
+    const [token, setToken] = useState({})
+
 
     // REQUESTS
     const login = (url, body, headers, event) => {
@@ -64,6 +70,7 @@ const GlobalState = (props) => {
                 localStorage.setItem("token", response.data.token)
                 localStorage.setItem("userName", email, name)
 
+
     // }
 
 
@@ -79,6 +86,10 @@ const GlobalState = (props) => {
     const states = { email, password, restaurants, token, name}
     const setters = { setEmail, setPassword, setRestaurants, setToken, setName }
     const requests = { login, signup }
+    const states = { email, password, restaurants, token, name }
+    const setters = { setEmail, setPassword, setRestaurants, setToken, setName }
+    const requests = { login, signup }
+
 
     return (
         <GlobalStateContext.Provider value={{ states, setters, requests }}>
