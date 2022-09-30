@@ -1,11 +1,14 @@
 import React from "react";
+import { BottomMenu } from "../Components/BottomMenu";
 
 
 export default function CartPage() {
 
     return (
-        <h1>Hello Cart</h1>
-
+        <div>
+            <h1>Hello Cart</h1>
+            <BottomMenu page="cart" />
+        </div>
     )
 
 

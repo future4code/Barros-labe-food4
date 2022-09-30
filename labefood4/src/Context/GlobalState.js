@@ -6,8 +6,6 @@ import { BASE_URL } from "../Constants/Constants";
 import { useNavigate } from "react-router-dom";
 import useRequestData from "../Hooks/useRequestData"
 
-
-
 const GlobalState = (props) => {
 
     // HARDCODED STUFF
@@ -26,6 +24,7 @@ const GlobalState = (props) => {
     const [password, setPassword] = useState("");
     const [restaurants, setRestaurants] = useState([])
     const [token, setToken] = useState({})
+    const [page, setPage] = useState("")
 
 
     // REQUESTS
@@ -40,12 +39,29 @@ const GlobalState = (props) => {
                 setToken(response.data.token)
                 console.log(token)
 
-
             }).catch((error) => {
                 alert("Usuário não cadastrado ou senha inválida")
                 console.log(error);
             })
     }
+
+    const signUp = (url, body, headers, event) => {
+
+        event.preventDefault()
+
+        axios.post(url.url, body.body, headers.headers)
+            .then((response) => {
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("userName", email)
+                setToken(response.data.token)
+                console.log(token)
+
+            }).catch((error) => {
+                alert("Erro SignUp")
+                console.log(error);
+            })
+    }
+
 
     // const getRestaurant = (url, headers) => {
 
@@ -73,22 +89,11 @@ const GlobalState = (props) => {
 
     // }
 
-
-            }).catch((error) => {
-                alert("Usuário não cadastrado ou senha inválida")
-                console.log(error);
-            })
-
-    }
-
-
-
-    const states = { email, password, restaurants, token, name}
-    const setters = { setEmail, setPassword, setRestaurants, setToken, setName }
+    const states = { email, password, restaurants, token, name, page}
+    const setters = { setEmail, setPassword, setRestaurants, setToken, setName, setPage }
     const requests = { login, signup }
-    const states = { email, password, restaurants, token, name }
-    const setters = { setEmail, setPassword, setRestaurants, setToken, setName }
-    const requests = { login, signup }
+
+
 
 
     return (
