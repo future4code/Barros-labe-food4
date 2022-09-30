@@ -58,7 +58,7 @@ export default function LoginPage() {
                     type="password"
                     format="ignoring this for now"
                     onChange={handlePassword} />
-                <RedButton>Entrar</RedButton>
+                <RedButton onClick={() => Coordinator.goToHomePage}>Entrar</RedButton>
             </form>
 
             <p>Não possui cadastro? </p><button onClick={() => Coordinator.goToSignUpPage}>Clique aqui</button>

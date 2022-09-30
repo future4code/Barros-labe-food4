@@ -2,7 +2,6 @@ import styled from "styled-components"
 
 export const Box = styled.div`
 text-align: center;
-
 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `
 
@@ -85,6 +84,7 @@ font-style: normal;
 line-height: normal;
 letter-spacing: -0.39px;
 color: #000;
+
 `
 
 export const EyeImg = styled.img`
