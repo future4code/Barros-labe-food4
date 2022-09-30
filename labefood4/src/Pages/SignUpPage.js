@@ -50,9 +50,6 @@ export default function SignUpPage() {
     return (
         <Box>
             
-            
-
-            
             <form onSubmit={(e) => { requests.signup({ url }, { bodySignup }, { headers }, e) }}>
                 
             <IFutureLogo src={LogoFood4} alt="logo da Labefood"/>
@@ -60,7 +57,7 @@ export default function SignUpPage() {
                 <InputBox
                     label="Nome*"
                     placeholder="Nome e sobrenome"
-                    type="text"
+                    type="email"
                     format="ignoring this for now"
                     onChange={handleName}
                 />
@@ -74,7 +71,7 @@ export default function SignUpPage() {
                 />
 
                 <InputBox
-                    label="Cpf*"
+                    label="CPF*"
                     placeholder="000.000.000-00"
                     type="email"
                     format="ignoring this for now"

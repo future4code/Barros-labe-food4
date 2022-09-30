@@ -12,8 +12,7 @@ const GlobalState = (props) => {
     // STATES
 
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [cfp, setCpf] = useState("");
+    const [password, setPassword] = useState("");   
     const [name, setName] = useState("");
 
     const urlRoubada = `https://us-central1-missao-newton.cloudfunctions.net/fourFoodD/login`
@@ -52,7 +51,7 @@ const GlobalState = (props) => {
         axios.post(url.url, body.body, headers.headers)
             .then((response) => {
                 localStorage.setItem("token", response.data.token)
-                localStorage.setItem("userName", email, cpf, name)
+                localStorage.setItem("userName", email, name)
 
 
 
@@ -65,8 +64,8 @@ const GlobalState = (props) => {
 
 
 
-    const states = { email, password, cpf, name}
-    const setters = { setEmail, setPassword, setCpf, setName }
+    const states = { email, password, name}
+    const setters = { setEmail, setPassword, setName }
     const requests = { login, signup }
 
     return (
