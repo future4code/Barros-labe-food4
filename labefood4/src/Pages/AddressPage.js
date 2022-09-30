@@ -47,14 +47,13 @@ export default function AddressPage() {
 
     const url = `${BASE_URL}signup`
 
-
     return (
         <Box>
-            
-            <form>
-                
 
-            <Tittle>Meu endereço</Tittle>
+            <form>
+
+
+                <Tittle>Meu endereço</Tittle>
                 <InputBox
                     label="Logradouro*"
                     placeholder="Rua / Av."
