@@ -13,6 +13,8 @@ const GlobalState = (props) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [cfp, setCpf] = useState("");
+    const [name, setName] = useState("");
 
     const urlRoubada = `https://us-central1-missao-newton.cloudfunctions.net/fourFoodD/login`
     const bodyRoubado = {
@@ -43,13 +45,29 @@ const GlobalState = (props) => {
     }
 
 
+    const signup = (url, body, headers, event) => {
+
+        event.preventDefault()
+
+        axios.post(url.url, body.body, headers.headers)
+            .then((response) => {
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("userName", email, cpf, name)
 
 
 
+            }).catch((error) => {
+                alert("Usuário não cadastrado ou senha inválida")
+                console.log(error);
+            })
 
-    const states = { email, password }
-    const setters = { setEmail, setPassword }
-    const requests = { login }
+    }
+
+
+
+    const states = { email, password, cpf, name}
+    const setters = { setEmail, setPassword, setCpf, setName }
+    const requests = { login, signup }
 
     return (
         <GlobalStateContext.Provider value={{ states, setters, requests }}>

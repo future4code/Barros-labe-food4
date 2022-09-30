@@ -25,29 +25,44 @@ export default function SignUpPage() {
     const handlePassword = (event) => {
         setters.setPassword(event.target.value)
     }
-    const body = {
+
+    const handleCpf = (event) => {
+        setters.setCpf(event.target.value)
+    }
+    const handleName = (event) => {
+        setters.setName(event.target.value)
+    }
+
+
+    const bodySignup = {
+        "name": states.name,
         "email": states.email,
+        "cpf": states.cpf,
         "password": states.password
     }
+
     const headers =
         'Content-Type: application/json'
 
-    const url = `${BASE_URL}login`
+    const url = `${BASE_URL}signup`
 
 
     return (
         <Box>
-            <IFutureLogo src={LogoFood4} alt="logo da Labefood"/>
-            <Tittle>Cadastrar</Tittle>
+            
+            
 
             
-            <form onSubmit={(e) => { requests.login({ url }, { body }, { headers }, e) }}>
+            <form onSubmit={(e) => { requests.signup({ url }, { bodySignup }, { headers }, e) }}>
+                
+            <IFutureLogo src={LogoFood4} alt="logo da Labefood"/>
+            <Tittle>Cadastrar</Tittle>
                 <InputBox
                     label="Nome*"
                     placeholder="Nome e sobrenome"
-                    type="email"
+                    type="text"
                     format="ignoring this for now"
-                    onChange={handleEmail}
+                    onChange={handleName}
                 />
 
                 <InputBox
@@ -59,11 +74,11 @@ export default function SignUpPage() {
                 />
 
                 <InputBox
-                    label="CPF*"
+                    label="Cpf*"
                     placeholder="000.000.000-00"
                     type="email"
                     format="ignoring this for now"
-                    onChange={handleEmail}
+                    onChange={handleCpf}
                 />
 
                 <InputBox
@@ -78,7 +93,7 @@ export default function SignUpPage() {
                     placeholder="Confirme a senha anterior"
                     type="password"
                     format="ignoring this for now"
-                    onChange={handleEmail}
+                    onChange={handlePassword}
                 />
                 
                 <RedButton onClick={() => Coordinator.goToLoginPage}>Criar</RedButton>
