@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import LogoFood4 from "../Assets/logo-future-eats-invert.png"
-import { useNavigate } from "react-router-dom";
 import { InputBox } from "../Components/InputBox";
 import { Box, IFutureLogo, RedButton, Tittle, FormBox } from "../Style/GlobalStyle";
 import { BASE_URL } from "../Constants/Constants";
@@ -8,16 +7,14 @@ import axios from "axios";
 import GlobalState from "../Context/GlobalState";
 import GlobalStateContext from "../Context/GlobalStateContext";
 import { useContext } from "react";
+import * as Coordinator from "../Routes/coordinator"
+import { useNavigate } from "react-router-dom";
 
 
 export default function LoginPage() {
 
-
     const navigate = useNavigate()
 
-    const GoToSignUpPage = () => {
-        navigate("/signup")
-    }
     const { states, setters, requests } = useContext(GlobalStateContext)
 
 
@@ -43,7 +40,10 @@ export default function LoginPage() {
             <Tittle>Entrar</Tittle>
 
 
-            <form onSubmit={(e) => { requests.login({ url }, { body }, { headers }, e) }}>
+            <form onSubmit={(e) => {
+                requests.login({ url }, { body }, { headers }, e)
+                navigate("/home")
+            }}>
                 <InputBox
                     label="E-mail"
                     placeholder="Email@email.com"
@@ -61,7 +61,7 @@ export default function LoginPage() {
                 <RedButton>Entrar</RedButton>
             </form>
 
-            <p>Não possui cadastro? </p><button onClick={() => GoToSignUpPage()}>Clique aqui</button>
+            <p>Não possui cadastro? </p><button onClick={() => Coordinator.goToSignUpPage}>Clique aqui</button>
         </Box>
     )
 
