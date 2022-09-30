@@ -36,14 +36,16 @@ export default function LoginPage() {
 
     return (
         <Box>
-            <IFutureLogo src={LogoFood4} alt="logo da Labefood" />
-            <Tittle>Entrar</Tittle>
+
 
 
             <form onSubmit={(e) => {
                 requests.login({ url }, { body }, { headers }, e)
                 navigate("/home")
             }}>
+             <IFutureLogo src={LogoFood4} alt="logo da Labefood" />
+            <Tittle>Entrar</Tittle>               
+
                 <InputBox
                     label="E-mail"
                     placeholder="Email@email.com"
@@ -59,9 +61,10 @@ export default function LoginPage() {
                     format="ignoring this for now"
                     onChange={handlePassword} />
                 <RedButton onClick={() => Coordinator.goToHomePage}>Entrar</RedButton>
+                <p>Não possui cadastro? </p><button onClick={() => Coordinator.goToSignUpPage}>Clique aqui</button>
             </form>
 
-            <p>Não possui cadastro? </p><button onClick={() => Coordinator.goToSignUpPage}>Clique aqui</button>
+            
         </Box>
     )
 
