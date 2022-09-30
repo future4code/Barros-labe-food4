@@ -11,6 +11,14 @@ export const IFutureLogo = styled.img`
   padding: 7rem 0 2rem ;
 `
 
+export const RedBox = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #e8222e;
+width: 100%;
+height: 100vh;
+`
 
 
 export const Tittle = styled.p`
