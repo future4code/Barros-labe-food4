@@ -1,10 +1,13 @@
 import React from "react";
-
+import { BottomMenu } from "../Components/BottomMenu";
 
 export default function ProfilePage() {
 
     return (
-        <h1>Hell ProfilePage</h1>
+        <div>
+            <h1>Hello profile</h1>
+            <BottomMenu page="profile" />
+        </div>
 
     )
 

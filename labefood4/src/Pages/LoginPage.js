@@ -42,6 +42,7 @@ export default function LoginPage() {
 
             <form onSubmit={(e) => {
                 requests.login({ url }, { body }, { headers }, e)
+                //{ localStorage.getItem("token") === true ? navigate("/home") : window.location.reload() }
                 navigate("/home")
             }}>
                 <InputBox
@@ -58,10 +59,10 @@ export default function LoginPage() {
                     type="password"
                     format="ignoring this for now"
                     onChange={handlePassword} />
-                <RedButton onClick={() => Coordinator.goToHomePage}>Entrar</RedButton>
+                <RedButton>Entrar</RedButton>
             </form>
 
-            <p>Não possui cadastro? </p><button onClick={() => Coordinator.goToSignUpPage}>Clique aqui</button>
+            <p>Não possui cadastro? </p><button onClick={() => navigate("/signup")}>Clique aqui</button>
         </Box>
     )
 

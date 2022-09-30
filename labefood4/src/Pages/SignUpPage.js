@@ -37,11 +37,11 @@ export default function SignUpPage() {
 
     return (
         <Box>
-            <IFutureLogo src={LogoFood4} alt="logo da Labefood"/>
+            <IFutureLogo src={LogoFood4} alt="logo da Labefood" />
             <Tittle>Cadastrar</Tittle>
 
-            
-            <form onSubmit={(e) => { requests.login({ url }, { body }, { headers }, e) }}>
+
+            <form onSubmit={(e) => { requests.signUp({ url }, { body }, { headers }, e) }}>
                 <InputBox
                     label="Nome*"
                     placeholder="Nome e sobrenome"
@@ -80,7 +80,7 @@ export default function SignUpPage() {
                     format="ignoring this for now"
                     onChange={handleEmail}
                 />
-                
+
                 <RedButton onClick={() => Coordinator.goToLoginPage}>Criar</RedButton>
             </form>
         </Box>

@@ -6,8 +6,6 @@ import { BASE_URL } from "../Constants/Constants";
 import { useNavigate } from "react-router-dom";
 import useRequestData from "../Hooks/useRequestData"
 
-
-
 const GlobalState = (props) => {
 
     // HARDCODED STUFF
@@ -20,6 +18,7 @@ const GlobalState = (props) => {
     const [password, setPassword] = useState("");
     const [restaurants, setRestaurants] = useState([])
     const [token, setToken] = useState({})
+    const [page, setPage] = useState("")
 
     // REQUESTS
     const login = (url, body, headers, event) => {
@@ -33,12 +32,29 @@ const GlobalState = (props) => {
                 setToken(response.data.token)
                 console.log(token)
 
-
             }).catch((error) => {
                 alert("Usuário não cadastrado ou senha inválida")
                 console.log(error);
             })
     }
+
+    const signUp = (url, body, headers, event) => {
+
+        event.preventDefault()
+
+        axios.post(url.url, body.body, headers.headers)
+            .then((response) => {
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("userName", email)
+                setToken(response.data.token)
+                console.log(token)
+
+            }).catch((error) => {
+                alert("Erro SignUp")
+                console.log(error);
+            })
+    }
+
 
     // const getRestaurant = (url, headers) => {
 
@@ -59,9 +75,9 @@ const GlobalState = (props) => {
     // }
 
 
-    const states = { email, password, restaurants, token }
-    const setters = { setEmail, setPassword, setRestaurants, setToken }
-    const requests = { login }
+    const states = { email, password, restaurants, token, page }
+    const setters = { setEmail, setPassword, setRestaurants, setToken, setPage }
+    const requests = { login, signUp }
 
     return (
         <GlobalStateContext.Provider value={{ states, setters, requests }}>
