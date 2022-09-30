@@ -17,6 +17,10 @@ const GlobalState = (props) => {
 
     // STATES
     const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");   
+    const [name, setName] = useState("");
+    const [restaurants, setRestaurants] = useState([])
+    const [token, setToken] = useState({})
   
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
@@ -54,11 +58,6 @@ const GlobalState = (props) => {
 
         event.preventDefault()
 
-        axios.post(url.url, body.body, headers.headers)
-            .then((response) => {
-                localStorage.setItem("token", response.data.token)
-                localStorage.setItem("userName", email, name)
-
     //         }).catch((error) => {
     //             alert("BUGOU GETRESTAURANT")
     //             console.log(url, headers)
@@ -66,10 +65,27 @@ const GlobalState = (props) => {
     //             console.log(error.response.status);
     //             console.log(error.response.headers);
     //         })
+        axios.post(url.url, body.body, headers.headers)
+            .then((response) => {
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("userName", email, name)
 
 
     // }
 
+
+            }).catch((error) => {
+                alert("Usuário não cadastrado ou senha inválida")
+                console.log(error);
+            })
+
+    }
+
+
+
+    const states = { email, password, restaurants, token, name}
+    const setters = { setEmail, setPassword, setRestaurants, setToken, setName }
+    const requests = { login, signup }
     const states = { email, password, restaurants, token, name }
     const setters = { setEmail, setPassword, setRestaurants, setToken, setName }
     const requests = { login, signup }

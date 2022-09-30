@@ -2,20 +2,18 @@ import React from "react";
 import { Box, IFutureLogo, RedButton, Tittle, form, FormBox } from "../Style/GlobalStyle";
 import LogoFood4 from "../Assets/logo-future-eats-invert.png"
 import { InputBox } from "../Components/InputBox";
-import * as Coordinator from "../Routes/coordinator";
+import * as Coordinator from "../Routes/coordinator"
 import GlobalStateContext from "../Context/GlobalStateContext";
 import { useContext } from "react";
 import { BASE_URL } from "../Constants/Constants";
 import { useNavigate } from "react-router-dom";
-import { navigate } from "react-router-dom";
 import axios from "axios";
 
-
-export default function SignUpPage() {
+export default function AddressPage() {
 
     const navigate = useNavigate()
 
-    const goToAddressPage = () => {
+    const GoToAddressPage = () => {
         navigate("/address")
     }
     const { states, setters, requests } = useContext(GlobalStateContext)
@@ -55,48 +53,57 @@ export default function SignUpPage() {
             
             <form>
                 
-            <IFutureLogo src={LogoFood4} alt="logo da Labefood"/>
-            <Tittle>Cadastrar</Tittle>
+
+            <Tittle>Meu endereço</Tittle>
                 <InputBox
-                    label="Nome*"
-                    placeholder="Nome e sobrenome"
+                    label="Logradouro*"
+                    placeholder="Rua / Av."
                     type="email"
                     format="ignoring this for now"
                     onChange={handleName}
                 />
 
                 <InputBox
-                    label="E-mail*"
-                    placeholder="email@email.com"
+                    label="Número*"
+                    placeholder="Número"
                     type="email"
                     format="ignoring this for now"
                     onChange={handleEmail}
                 />
 
                 <InputBox
-                    label="CPF*"
-                    placeholder="000.000.000-00"
+                    label="Complemento*"
+                    placeholder="Apto. / Bloco"
                     type="email"
                     format="ignoring this for now"
                     onChange={handleCpf}
                 />
 
                 <InputBox
-                    label="Senha*"
-                    placeholder="Mínimo 6 caracteres"
-                    type="password"
+                    label="Bairro*"
+                    placeholder="Bairro"
+                    type="email"
                     format="ignoring this for now"
-                    onChange={handlePassword} />
+                    onChange={handleCpf}
+                />
 
                 <InputBox
-                    label="Confirmar*"
-                    placeholder="Confirme a senha anterior"
-                    type="password"
+                    label="Cidade*"
+                    placeholder="Cidade"
+                    type="email"
                     format="ignoring this for now"
-                    onChange={handlePassword}
+                    onChange={handleCpf}
                 />
-                
-                <RedButton onClick={() => Coordinator.goToAddressPage(navigate)}>Criar</RedButton>
+
+                <InputBox
+                    label="Estado*"
+                    placeholder="Estado"
+                    type="email"
+                    format="ignoring this for now"
+                    onChange={handleCpf}
+                />
+
+                <RedButton onClick={() => Coordinator.goToLoginPage(navigate)}>Salvar</RedButton>
             </form>
         </Box>
 
