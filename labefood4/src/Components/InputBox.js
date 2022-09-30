@@ -18,6 +18,14 @@ export const InputBox = (props) => {
         setters.setPassword(event.target.value)
     }
 
+    const handleCpf = (event) => {
+        setters.setCpf(event.target.value)
+    }
+
+    const handleName = (event) => {
+        setters.setName(event.target.value)
+    }
+
     const [visible, setVisible] = useState(false)
     const toggleVisible = (event) => {
         event.preventDefault()
@@ -51,6 +59,29 @@ export const InputBox = (props) => {
                     </InputBoxInput>
                 </InputBoxRectangle>
             }
+            {
+                props.type === "cpf" &&
+                <InputBoxRectangle>
+                    <InputBoxInput
+                        onChange={handleCpf}
+                        placeholder={props.placeholder}>
+
+                    </InputBoxInput>
+                </InputBoxRectangle>
+            }
+            {
+                props.type === "name" &&
+                <InputBoxRectangle>
+                    <InputBoxInput
+                        onChange={handleName}
+                        placeholder={props.placeholder}>
+
+                    </InputBoxInput>
+                </InputBoxRectangle>
+            } 
+
+
+
             {
                 props.type === "password" &&
                 <InputBoxRectangle>

@@ -36,8 +36,7 @@ export default function LoginPage() {
 
     return (
         <Box>
-            <IFutureLogo src={LogoFood4} alt="logo da Labefood" />
-            <Tittle>Entrar</Tittle>
+
 
 
             <form onSubmit={(e) => {
@@ -45,6 +44,9 @@ export default function LoginPage() {
                 //{ localStorage.getItem("token") === true ? navigate("/home") : window.location.reload() }
                 navigate("/home")
             }}>
+             <IFutureLogo src={LogoFood4} alt="logo da Labefood" />
+            <Tittle>Entrar</Tittle>               
+
                 <InputBox
                     label="E-mail"
                     placeholder="Email@email.com"
@@ -59,10 +61,12 @@ export default function LoginPage() {
                     type="password"
                     format="ignoring this for now"
                     onChange={handlePassword} />
+
                 <RedButton>Entrar</RedButton>
             </form>
 
             <p>Não possui cadastro? </p><button onClick={() => navigate("/signup")}>Clique aqui</button>
+
         </Box>
     )
 

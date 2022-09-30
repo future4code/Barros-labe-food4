@@ -15,10 +15,17 @@ const GlobalState = (props) => {
 
     // STATES
     const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");   
+    const [name, setName] = useState("");
+    const [restaurants, setRestaurants] = useState([])
+    const [token, setToken] = useState({})
+  
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [restaurants, setRestaurants] = useState([])
     const [token, setToken] = useState({})
     const [page, setPage] = useState("")
+
 
     // REQUESTS
     const login = (url, body, headers, event) => {
@@ -63,6 +70,9 @@ const GlobalState = (props) => {
     //             setters.setRestaurants(response.data)
     //             console.log(restaurants)
 
+    const signup = (url, body, headers, event) => {
+
+        event.preventDefault()
 
     //         }).catch((error) => {
     //             alert("BUGOU GETRESTAURANT")
@@ -71,13 +81,20 @@ const GlobalState = (props) => {
     //             console.log(error.response.status);
     //             console.log(error.response.headers);
     //         })
+        axios.post(url.url, body.body, headers.headers)
+            .then((response) => {
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("userName", email, name)
+
 
     // }
 
+    const states = { email, password, restaurants, token, name, page}
+    const setters = { setEmail, setPassword, setRestaurants, setToken, setName, setPage }
+    const requests = { login, signup }
 
-    const states = { email, password, restaurants, token, page }
-    const setters = { setEmail, setPassword, setRestaurants, setToken, setPage }
-    const requests = { login, signUp }
+
+
 
     return (
         <GlobalStateContext.Provider value={{ states, setters, requests }}>
