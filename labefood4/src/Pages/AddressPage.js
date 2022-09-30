@@ -103,7 +103,6 @@ export default function AddressPage() {
                     onChange={handleCpf}
                 />
 
-                
                 <RedButton onClick={() => Coordinator.goToLoginPage(navigate)}>Salvar</RedButton>
             </form>
         </Box>
