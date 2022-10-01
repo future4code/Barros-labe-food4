@@ -78,3 +78,8 @@ color: #000;
 export const EyeImg = styled.img`
 position: fixed;
 z-index: 200;`
+
+export const profilePageVazia= styled.div`
+
+
+`
