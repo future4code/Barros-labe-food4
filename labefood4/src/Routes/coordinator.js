@@ -6,3 +6,4 @@ export const goToSignUpPage = (navigate) => { navigate("/signup") };
 export const goToCartPage = (navigate) => { navigate("/cart") };
 export const goToRestaurantPage = (navigate) => { navigate("/restaurant") };
 export const goToSearchPage = (navigate) => { navigate("/search") };
+export const goToAddressPage = (navigate) => { navigate("/address")};
