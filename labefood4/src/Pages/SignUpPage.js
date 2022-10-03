@@ -57,7 +57,7 @@ export default function SignUpPage() {
             <Tittle>Cadastrar</Tittle>
 
 
-            <form onSubmit={(e) => { requests.signUp({ url }, { body }, { headers }, e) }}>
+            <form onSubmit={(e) => { requests.signUp({ url },/* { body },*/ { headers }, e) }}>
 
 
                 <InputBox
