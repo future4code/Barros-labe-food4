@@ -27,4 +27,5 @@ O grupo sentiu muita dificuldade em se organizar na primeira semana, faltou tare
 Enfim, retomaremos (ou até vamos tentar refazer este projeto no futuro quando estivermos mais seguros com o uso do axios/backend)
 
 Link Surge
-wide-eyed-sack.surge.sh
+puffy-crack.surge.sh
+
