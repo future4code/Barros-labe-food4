@@ -1,70 +1,30 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Labefood-Barros, grupo 4
 
-In the project directory, you can run:
+O que funciona:
+pagina de splash inicial
+pagina de login
+api do login* (post)
+globalState*
+pagina principal (home)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+O que não funciona:
+-a pagina principal carrega rapido demais, e fica sem os cards do restaurante, apertando F5 os cards carregam
+-não foi finalizada a integração entre o CART e o restaurantCard, então não é possível fazer compras.
 
-### `npm test`
+-a pagina signup (antes do login) não funciona o API (envia e da erro/reload)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+PROBLEMAS GERAIS (API)
+O maior desafio foi fazer a integração com a API. Sentimento que perdemos muito tempo tentando fazer comandos simples funcionarem. Houve muita dificuldade na hora de integrar a parte dos demais membros do grupo para que o projeto fosse evoluindo. Sentimos muita diferença no nível dos integrantes, o que gerou confusão/empacou o projeto.
+Entendemos que a funcionalidade seja essencial para o projeto, mas sentimos que foi pouco explorada a questão de funcionaliadades/implementações que sempre dependem de um axios funcoinal. Coisa que não conseguimos dominar nesse projeto. Muita, muita dificuldade na questão de assincronia dos dados.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+O grupo sentiu muita dificuldade em se organizar na primeira semana, faltou tarefas bem definidas para cada um e isso só se potencializou durante o mês. Certamente, o número grande de membros foi um dos maiores dificultadores, mas reconhecemos que houve pouca gerência de pessoal.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Enfim, retomaremos (ou até vamos tentar refazer este projeto no futuro quando estivermos mais seguros com o uso do axios/backend)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Link Surge
+wide-eyed-sack.surge.sh

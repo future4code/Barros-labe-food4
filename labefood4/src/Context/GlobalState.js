@@ -20,8 +20,8 @@ const GlobalState = (props) => {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [restaurants, setRestaurants] = useState([])
-    const [token, setToken] = useState({})
-
+    const [token, setToken] = useState({});
+    const [restaurantId, setRestaurantId] = useState("");
 
     // REQUESTS
     const login = (url, body, headers, event) => {
@@ -60,8 +60,8 @@ const GlobalState = (props) => {
 
 
 
-    const states = { email, password, restaurants, token, name, page }
-    const setters = { setEmail, setPassword, setRestaurants, setToken, setName, setPage }
+    const states = { email, password, restaurants, token, name, page, restaurantId }
+    const setters = { setEmail, setPassword, setRestaurants, setToken, setName, setPage, setRestaurantId }
     const requests = { login, signUp }
 
 

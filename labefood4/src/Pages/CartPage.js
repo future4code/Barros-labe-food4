@@ -14,7 +14,7 @@ import { BASE_URL, token } from "../Constants/Constants";
 
 export const CartPage = () => {
     const [cart, setCart] = useState(false)
-    const {states, setters, requests} = useContext(GlobalStateContext);
+    const { states, setters, requests } = useContext(GlobalStateContext);
     const [totalPrice, setTotalPrice] = useState();
     const [address, setAddress] = useState({});
     const [paymentMethodRadio, setPaymentMethodRadio] = useState(undefined)
@@ -24,10 +24,10 @@ export const CartPage = () => {
         })
     );
 
-    let products = 
-    cartProducts && cartProducts.map((item) => {
-        return { id: item.id, quantity:item.quantity};
-    });
+    let products =
+        cartProducts && cartProducts.map((item) => {
+            return { id: item.id, quantity: item.quantity };
+        });
 
     const body = {
         products: products,
@@ -37,32 +37,32 @@ export const CartPage = () => {
 
     const getAddress = () => {
         axios
-        .get(`${BASE_URL}/profile/address`, {
-            headers: {auth: token},
-        })
-        .then((response) => {
-            if (response.data.address) {
-                setAddress(response.data.address);
-            }
-        })
-        .catch((err) => {
-            console.log(err.response);
-        });
+            .get(`${BASE_URL}/profile/address`, {
+                headers: { auth: token },
+            })
+            .then((response) => {
+                if (response.data.address) {
+                    setAddress(response.data.address);
+                }
+            })
+            .catch((err) => {
+                console.log(err.response);
+            });
     };
 
     const placeOrder = () => {
         axios.post(`${BASE_URL}/restaurants/order`, body, {
-            headers: {auth:token}
+            headers: { auth: token }
         })
-        .then((response) => {
-            alert('Pedido realizado com sucesso!')
-        })
-        .catch((err) => {
-            alert("Já possui o pedido em andamento, POR FAVOR AGUARDE!")
-            console.log(err.response);
-        })
+            .then((response) => {
+                alert('Pedido realizado com sucesso!')
+            })
+            .catch((err) => {
+                alert("Já possui o pedido em andamento, POR FAVOR AGUARDE!")
+                console.log(err.response);
+            })
     }
-    const shippingPrice = cartProducts.length === 0? '0,00' : cartProducts[0].cartProducts.toFixed(2).toString().replace(".", ",")
+    const shippingPrice = cartProducts.length === 0 ? '0,00' : cartProducts[0].cartProducts.toFixed(2).toString().replace(".", ",")
 
     const onClickProduct = useCallback((produto) => {
         produto.quantity = 0;
@@ -97,17 +97,14 @@ export const CartPage = () => {
                     <p> Endereço de entrega</p>
                     <p>
                         {!address && "Endereço não encontrado :/"}
-                        {address.complement 
-                        ? `${address.street !== undefined ? address.street : ""}, ${address.number !== undefined ? address.number : ""
-                    }${
-                        address.complement !== undefined ? address.complement : ""
-                    } ${address.neighbourhood !== undefined ? " - " + address.neighbourhood : ""}`
-                : `${address.street !== undefined ? address.street : ""} ${
-                    address.number !== undefined ? "," + address.number : ""
-                } ${
-                    address.neighbourhood !== undefined ? " - " + address.neighbourhood : ""
-                }`}
-                        
+                        {address.complement
+                            ? `${address.street !== undefined ? address.street : ""}, ${address.number !== undefined ? address.number : ""
+                            }${address.complement !== undefined ? address.complement : ""
+                            } ${address.neighbourhood !== undefined ? " - " + address.neighbourhood : ""}`
+                            : `${address.street !== undefined ? address.street : ""} ${address.number !== undefined ? "," + address.number : ""
+                            } ${address.neighbourhood !== undefined ? " - " + address.neighbourhood : ""
+                            }`}
+
                     </p>
                 </div>
                 <div className="title">
@@ -125,7 +122,7 @@ export const CartPage = () => {
                 </div>
                 <span className="line"></span>
                 <div>
-                    <input type="radio" name="pagamento" value={"money"} onChange={setPaymentMethodRadio}/>
+                    <input type="radio" name="pagamento" value={"money"} onChange={setPaymentMethodRadio} />
                     <label htmlFor="dinheiro">Dinheiro</label>
                 </div>
                 <div>
@@ -134,12 +131,12 @@ export const CartPage = () => {
                 </div>
                 <div className="submit-button">
                     <Button
-                    type="submit"
-                    colorScheme="red"
-                    variant="solid"
-                    borderRadius="2px"
-                    height="2.625rem"
-                    opacity="0.80"
+                        type="submit"
+                        colorScheme="red"
+                        variant="solid"
+                        borderRadius="2px"
+                        height="2.625rem"
+                        opacity="0.80"
                     >Confirmar</Button>
                 </div>
                 <footer />
@@ -154,24 +151,19 @@ export const CartPage = () => {
                 <div className="address">
                     <p>Endereço de entrega</p>
                     <p>
-                    {!address && "Endereço não encontrado :/"}
-            {address.complement
-              ? `${address.street !== undefined ? address.street : ""}, ${
-                  address.number !== undefined ? address.number : ""
-                }, ${
-                  address.complement !== undefined ? address.complement : ""
-                } ${
-                  address.neighbourhood !== undefined
-                    ? " - " + address.neighbourhood
-                    : ""
-                }`
-              : `${address.street !== undefined ? address.street : ""} ${
-                  address.number !== undefined ? ", " + address.number : ""
-                } ${
-                  address.neighbourhood !== undefined
-                    ? " - " + address.neighbourhood
-                    : ""
-                }`}
+                        {!address && "Endereço não encontrado :/"}
+                        {address.complement
+                            ? `${address.street !== undefined ? address.street : ""}, ${address.number !== undefined ? address.number : ""
+                            }, ${address.complement !== undefined ? address.complement : ""
+                            } ${address.neighbourhood !== undefined
+                                ? " - " + address.neighbourhood
+                                : ""
+                            }`
+                            : `${address.street !== undefined ? address.street : ""} ${address.number !== undefined ? ", " + address.number : ""
+                            } ${address.neighbourhood !== undefined
+                                ? " - " + address.neighbourhood
+                                : ""
+                            }`}
                     </p>
                 </div>
                 <div className="rest-info">
@@ -182,49 +174,49 @@ export const CartPage = () => {
 
                 {cartProducts && cartProducts.filter((item) => {
                     return item.quantity > 0;
-                }) 
-                .map((i) => {
-                    return (
-                <>
-                <CardContainer key={i.id}>
-                    <RestaurantCard 
-                    image={i && i.photoUrl && i.photoUrl}
-                    title={i.name}
-                    description={i.description}
-                    price={i.price.toFixed(2)}
-                    />
-                    <div className="buttons">
-                        {i.quantity === 0 || i.quantity === undefined ? (
-                            <div></div>
-                        ) : (
-                            <span>{i.quantity}</span>
-                        )}
-                        <Button
-                        onClick={() => onClickProduct(i)}
-                        className="remove-button"
-                        >
-                            <p>Remover</p>
-                        </Button>
+                })
+                    .map((i) => {
+                        return (
+                            <>
+                                <CardContainer key={i.id}>
+                                    <RestaurantCard
+                                        image={i && i.photoUrl && i.photoUrl}
+                                        title={i.name}
+                                        description={i.description}
+                                        price={i.price.toFixed(2)}
+                                    />
+                                    <div className="buttons">
+                                        {i.quantity === 0 || i.quantity === undefined ? (
+                                            <div></div>
+                                        ) : (
+                                            <span>{i.quantity}</span>
+                                        )}
+                                        <Button
+                                            onClick={() => onClickProduct(i)}
+                                            className="remove-button"
+                                        >
+                                            <p>Remover</p>
+                                        </Button>
+                                    </div>
+                                </CardContainer>
+                            </>
+                        );
+                    })}
+                <div className="price-container">
+                    <div className="subtotal">
+                        <p>SUBTOTAL</p>
                     </div>
-                </CardContainer>
-                </>
-            );
-        })}
-        <div className="price-container">
-        <div className="subtotal">
-            <p>SUBTOTAL</p>
-        </div>
-          <div className="price">
-          <h6>{`Frete R$${shippingPrice}`}</h6>
-            <p>{`R$${totalPrice && totalPrice.toFixed(2)}`}</p>
-          </div>
-        </div>
-        <div className="payment-title">
-          <p>Forma de pagamento</p>
-        </div>
-        <span className="line"></span>
+                    <div className="price">
+                        <h6>{`Frete R$${shippingPrice}`}</h6>
+                        <p>{`R$${totalPrice && totalPrice.toFixed(2)}`}</p>
+                    </div>
+                </div>
+                <div className="payment-title">
+                    <p>Forma de pagamento</p>
+                </div>
+                <span className="line"></span>
                 <div>
-                    <input type="radio" name="pagamento" value={"money"} onChange={setPaymentMethodRadio}/>
+                    <input type="radio" name="pagamento" value={"money"} onChange={setPaymentMethodRadio} />
                     <label htmlFor="dinheiro">Dinheiro</label>
                 </div>
                 <div>
@@ -233,18 +225,18 @@ export const CartPage = () => {
                 </div>
                 <div className="submit-button">
                     <Button
-                    type="submit"
-                    colorScheme="red"
-                    variant="solid"
-                    borderRadius="2px"
-                    height="2.625rem"
-                    onClick={placeOrder}
+                        type="submit"
+                        colorScheme="red"
+                        variant="solid"
+                        borderRadius="2px"
+                        height="2.625rem"
+                        onClick={placeOrder}
                     >Confirmar
                     </Button>
                 </div>
                 <footer />
 
-        </CardContainer>
+            </CardContainer>
         )
     }
 }
