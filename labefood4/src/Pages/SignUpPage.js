@@ -7,7 +7,7 @@ import GlobalStateContext from "../Context/GlobalStateContext";
 import { useContext } from "react";
 import { BASE_URL } from "../Constants/Constants";
 import { useNavigate } from "react-router-dom";
-import { navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 
 
@@ -99,7 +99,7 @@ export default function SignUpPage() {
                     onChange={handlePassword}
                 />
 
-                <RedButton onClick={() => Coordinator.goToLoginPage}>Criar</RedButton>
+                <RedButton onClick={() => navigate("/address")}>Criar</RedButton>
 
             </form>
         </Box>
